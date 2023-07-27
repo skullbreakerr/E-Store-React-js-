@@ -5,7 +5,7 @@ function App() {
   const [results,setResults] = useState([]);
   const valueData=[];
   useEffect(()=>{
-   fetch("https://my-json-server.typicode.com/skullbreakerr/e-comerce-API/categories").then(response => response.json()).then(data=>{
+   fetch("https://my-json-server.typicode.com/skullbreakerr/e-storeAPI/categories").then(response => response.json()).then(data=>{
      console.log(data);
      setResults(data);
      valueData=results.map(data=>(
@@ -18,7 +18,7 @@ function App() {
       <div className="App">
       {
         results.map(data=>(
-          <div key={d.id}>{data.title}</div>
+          <div key={data.id}>{data.title}</div>
         ))
       }
       </div>
