@@ -1,8 +1,10 @@
 import React,{useEffect,useState} from 'react';
 import '../style.css';
-
+import Category from'./Category.js';
+import Product from'./Product.js';
 function Nav() {
-  const [results, setResults] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [products,setProducts] = useState([]);
   useEffect(() => {
     fetch(
       'https://my-json-server.typicode.com/skullbreakerr/e-storeAPI/categories'
@@ -10,11 +12,36 @@ function Nav() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setResults(data);
-        valueData = results.map((data) => <div>{d.title}</div>);
+        setCategories(data);
       });
   }, []);
+
+
+  const handleCategoryClick = id=>{
+    fetch(
+      'https://my-json-server.typicode.com/skullbreakerr/e-storeAPI/categories?catId='+id
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setProducts(data);
+      })
+  }
+
+// Rendering Products
+  const renderProducts = () =>{
+    return products.map( p=>
+       <div>{p.title}</div> 
+    )
+  }
+// Renderng Cateegories
+  const renderCategories = ()=>{
+    return categories.map( c=>
+      <Category key={c.id} id={c.id} title={c.title} onCategoryClick={()=> handleCategoryClick(c.id)}/>
+    )}
+
   return (
+    <>
     <div id="nav">
       <div id="menu">
         <button
@@ -53,9 +80,7 @@ function Nav() {
           </div>
           <div class="offcanvas-body">
             <div>
-              {results.map((data) => (
-                <div key={data.id}>{data.title}</div>
-              ))}
+              { categories && renderCategories() }
               {/* I will not close if you click outside of me. */}
             </div>
           </div>
@@ -73,8 +98,12 @@ function Nav() {
       <div id="bar"></div>
       <a class="btn " href="#" role="button">Sign up</a>
       </div>
-
     </div>
+
+    <div id="productPage">
+         {products && renderProducts()} 
+    </div>
+  </>
   );
 }
 
