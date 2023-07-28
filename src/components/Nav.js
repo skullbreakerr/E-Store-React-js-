@@ -19,7 +19,7 @@ function Nav() {
 
   const handleCategoryClick = id=>{
     fetch(
-      'https://my-json-server.typicode.com/skullbreakerr/e-storeAPI/categories?catId='+id
+      'https://my-json-server.typicode.com/skullbreakerr/e-storeAPI/products?catId='+id
     )
       .then((response) => response.json())
       .then((data) => {
