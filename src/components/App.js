@@ -1,28 +1,16 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../style.css';
+import Nav from './Nav.js';
 
 function App() {
-  const [results,setResults] = useState([]);
-  const valueData=[];
-  useEffect(()=>{
-   fetch("https://my-json-server.typicode.com/skullbreakerr/e-storeAPI/categories").then(response => response.json()).then(data=>{
-     console.log(data);
-     setResults(data);
-     valueData=results.map(data=>(
-      <div>{d.title}</div>
-    ))
-   })
-  },[])
+  
 
   return (
-      <div className="App">
-      {
-        results.map(data=>(
-          <div key={data.id}>{data.title}</div>
-        ))
-      }
-      </div>
-  )
-};
+    <div className="App">
+      <Nav/>
+      
+    </div>
+  );
+}
 
 export default App;
