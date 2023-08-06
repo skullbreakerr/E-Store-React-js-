@@ -69,6 +69,11 @@ p {
   background-color: burlywood;
   align-items: center;
   justify-content: center;
-  text-align: center;
+}
 
+#productPage h4{
+  text-align: center;
+  /* margin-top:auto; */
+  margin-left: auto;
+  margin-right: auto;
 }
