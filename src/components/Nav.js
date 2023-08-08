@@ -4,7 +4,7 @@ import Category from './Category.js';
 import Product from './Product.js';
 import { Fetcher } from './Fetcher.js';
 function Nav() {
-  const [categories, setCategories] = useState({ errorMessage: '', data: [] });
+  const [categories, setCategories] = useState({ errorMessage: '', data:[] });
   const [products, setProducts] = useState({ errorMessage: '', data: [] });
   useEffect(() => {
     const FetchData = async () => {
@@ -17,7 +17,7 @@ function Nav() {
 
   const handleCategoryClick = (id) => {
     const FetchData = async () => {
-      const responseObject = await Fetcher('/products?catd='+id);
+      const responseObject = await Fetcher('/products?catd=' + id);
       setProducts(responseObject);
     };
 
@@ -26,18 +26,19 @@ function Nav() {
 
   // Rendering Products
   const renderProducts = () => {
-    return products.data.map((p) => <div>{p.title}</div>);
+    return products.data.map((p) => <Product {...p}>{p.title}</Product>);
   };
-  // Renderng Cateegories
+
+  // Rendering Categories
   const renderCategories = () => {
-    return categories.data.map((c) => (
+    return categories.data.map(c => 
       <Category
         key={c.id}
         id={c.id}
         title={c.title}
         onCategoryClick={() => handleCategoryClick(c.id)}
       />
-    ));
+    );
   };
 
   return (

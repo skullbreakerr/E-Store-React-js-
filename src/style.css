@@ -4,28 +4,22 @@ p {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-
- 
- /* Navigation Bar  */
-#menu .material-symbols-outlined{
+/* Navigation Bar  */
+#menu .material-symbols-outlined {
   font-size: 5vmin;
   padding-top: 1vh;
 }
 
- /* Profile icon formating */
+/* Profile icon formating */
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 800,
-  'GRAD' 1,
-  'opsz' 50
+  font-variation-settings: 'FILL' 1, 'wght' 800, 'GRAD' 1, 'opsz' 50;
 }
- 
-.custom-gap{
-  margin-right: -180px;
-} 
 
-#nav{
+.custom-gap {
+  margin-right: -180px;
+}
+
+#nav {
   height: 10vh;
   width: 100%;
   padding-top: 5px;
@@ -35,45 +29,41 @@ p {
   justify-content: space-between;
   background-color: coral;
 }
-#title{
+#title {
   display: flex;
   gap: 2vw;
   align-items: center;
   margin-top: 1.4vmin;
 }
-#title .material-symbols-outlined{
+#title .material-symbols-outlined {
   font-size: 9vmin;
   color: white;
-  padding-bottom: 2vh ;
+  padding-bottom: 2vh;
 }
-#title h1{
+#title h1 {
   font-size: 8vmin;
   padding-bottom: 0.5vh;
 }
 
-#auth{
+#auth {
   display: flex;
   gap: 0px;
-} 
-#auth .gap{
-    border-right: solid 2px;
-    border-radius: 0px;
 }
-
+#auth .gap {
+  border-right: solid 2px;
+  border-radius: 0px;
+}
 
 /* Product Page */
 
-#productPage{
-  height: 100vh;
-  width: 100vw;
-  background-color: burlywood;
-  align-items: center;
-  justify-content: center;
+article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.25fr 1fr 0.25fr;
+  column-gap: 2vw;
 }
-
-#productPage h4{
-  text-align: center;
-  /* margin-top:auto; */
-  margin-left: auto;
-  margin-right: auto;
+.product-action button {
+  height: 20px;
+  width: 160px;
+  border-radius: 10px;
 }
